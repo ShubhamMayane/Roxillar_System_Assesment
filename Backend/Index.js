@@ -47,36 +47,9 @@ const stockModel=mongoose.model("stockCollection",stockSchema);
 //     data.save();
 
 
-
-
-
-
-/* Database related logic --end*/
-
-
-
-//api realated logic--start
-const app=express();
-
-
-
-
-app.listen(5000,()=>{
-
-    console.log("server application is running on port 5000");
-})
-
-
-
-app.get("/",(req,res)=>{
-
-    res.send("Jay Ganesh");
-});
-
-
-app.get("/getDataSource",async(req,res)=>{
-
-
+//fill database with data fetching from datasource
+async function fillData()
+{
     //logic to get data from another server and fill that data inside our database
     try
     {
@@ -86,7 +59,7 @@ app.get("/getDataSource",async(req,res)=>{
 
             console.log(dataFromApi);
 
-            res.send(dataFromApi);
+           
 
 
             //logic to insert all data came from api in our database
@@ -123,8 +96,39 @@ app.get("/getDataSource",async(req,res)=>{
     }
 
 
+}
 
+
+
+
+
+/* Database related logic --end*/
+
+
+
+//api realated logic--start
+const app=express();
+
+
+
+
+
+app.listen(5000,()=>{
+
+    console.log("server application is running on port 5000");
+    fillData();
+    
+})
+
+
+
+app.get("/",(req,res)=>{
+
+    res.send("Jay Ganesh");
 });
+
+
+
 
 
 

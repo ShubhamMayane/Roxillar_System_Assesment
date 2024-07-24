@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { DataGrid } from '@mui/x-data-grid';
 
-import Chart from "../ChartComponent/Chart";
+
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
